@@ -1,11 +1,11 @@
 workflows:
   my-workflow:
     scripts:
-      - name: Add provisioning profiles
+      - name: daten
         script: |
           set -e # exit on first failed command
 
-          PROFILES_HOME="$HOME/Library/MobileDevice/Provisioning Profiles"
+          PROFILES_HOME="$HOME/Library/MobileDevice/daten"
           mkdir -p "$PROFILES_HOME"
           echo ${PROVISIONING_PROFILE?} | base64 --decode > "$PROFILES_HOME/$(uuidgen).mobileprovision"
       - name: Add signing certificate
